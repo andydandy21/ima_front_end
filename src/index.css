@@ -1,13 +1,233 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to right, rgb(88, 213, 255), rgb(206, 243, 255),rgb(190, 239, 255));
+  font-family: sans-serif;
+}
+.app {
+  display: grid;
+  grid-template: 
+    "navbar main" / 120px 1fr
+  ;
+  position: relative;
+  background-color: rgb(247, 253, 255);
+  border-radius: 10px;
+  width:1300px;
+  max-width: 100%;
+  height: 750px;
+  margin: auto;
+  padding-top: 20px;
+  box-shadow: 5px 5px 10px rgba(212, 212, 212, 0.493);
+}
+.main {
+  grid-area: main;
+  position: absolute;
+  display: grid;
+  grid-template: 
+    'details details' 70px
+    'messages members' 1fr / 1fr 250px
+  ;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(236, 236, 236);
+  border-top-left-radius: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+.navbar {
+  grid-area: navbar;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.navbar--link {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: blue;
+  margin: 5px auto 15px;
+  transition: border-radius .25s;
+}
+.navbar--link:hover {
+  border-radius: 25%;
+}
+.details {
+  grid-area: details;
+  border-top-left-radius: 10px;
+  border-bottom: 1px solid rgb(236, 236, 236);
+}
+.messages {
+  display: grid;
+  grid-template: 
+    'messages--message' 1fr
+    'messages--form' 100px
+  ;
+  position: relative;
+  grid-area: messages;
+  background-color: rgba(0, 0, 0, 0.055);
+}
+.messages--form {
+  grid-area: messages--form;
+  display: flex;
+  height: 50px;
+  margin: 25px;
+  padding: 0 25px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.493);
+  align-items: center;
+}
+.messages--form > input {
+  width: 90%;
+  background-color: transparent;
+  border: none;
+  font-size: 1.125em;;
+}
+.messages--form > input:focus {
+  outline: none;
+}
+.messages--form > input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.messages-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-area: messages--message;
+  margin: 25px;
+}
+.messages--message {
+  display: grid;
+  grid-template: 
+    "message--img message--username message--date" 1fr
+    "message--img message--text message--text" 1fr / 75px min-content 1fr
+  ;
+  align-items: baseline;
+  justify-content: baseline;
+  padding-right: 10%;
+  margin-bottom: 5px;
+}
+.messages--message:hover {
+  background-color: rgba(0, 0, 0, 0.205);
+}
+.messages--message > div {
+  grid-area: message--img;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  background-color: blue;
+  border-radius: 50%;
+}
+.messages--message > h1 {
+  grid-area: message--username;
+  font-size: 1.125em;;
+  line-height: none;
+  margin: auto auto 0 0;
+}
+.messages--message > p {    
+  grid-area: message--date;
+  font-size: .875em;
+  line-height: none; 
+  margin: auto auto 0 10px;
+}
+.messages--message > h3 {
+  grid-area: message--text;
+  font-size: 1.125em;;
+  font-weight: 100;
+  line-height: 0;
+}
+.members {
+  grid-area: members;
+  position: absolute;
+  top:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  border-left: 1px solid rgb(236, 236, 236);
+  border-bottom-right-radius: 10px;
+}
+.account-layout {
+  position: relative;
+  width: 500px;
+  margin: auto;
+  padding: 50px;
+  transform: translateY(20%);
+  border-radius: 10px;
+  background-color: rgb(247, 253, 255);
+  box-shadow: 5px 5px 10px rgba(212, 212, 212, 0.493);
+  align-items: center;
+  justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.form-flow {
+  display: flex;
+  flex-direction: column;
+}
+.form-title {
+  margin-top: 0;
+}
+.form-flow > input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 2.5px 15px;
+  background-color: transparent;
+  font-size: 1.125em;
+  height: 1.5em;
+}
+.form-flow > input:focus {
+  outline: none;
+}
+.form-flow > input::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+
+}
+.form-flow > button {
+  background-color: rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  height: 35px;
+  margin: auto 0 auto auto;
+}
+.form-flow > button:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.form-flow > button:active {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+.form-flow > div {
+  flex-direction: row;
+}
+.custom-hr {
+  margin: 25px 50px;
+  height: .25px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-bottom: none;
+}
+.new-account-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+}
+.new-account {
+  background-color: rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+  padding: 0 20px;
+}
+.new-account:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.new-account:active {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+.google-signin {
+  content: url(./static/googleLogo.png);
+}
+.google-signin:hover {
+  content: url(./static/googleLogoHover.png);
+}
+.google-signin:active {
+  content: url(./static/googleLogoPressed.png);
 }
