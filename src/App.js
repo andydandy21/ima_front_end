@@ -109,7 +109,7 @@ export default function App() {
     return(
         <div className='app'>
             <Navbar />
-            <Outlet context={ context }/>
+            {currentUser && <Outlet context={ context }/>}
         </div>
     )
 }
