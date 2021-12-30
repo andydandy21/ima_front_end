@@ -38,8 +38,9 @@ export default function Login() {
             return res.json()
         }).then(data => {
             localStorage.setItem('remember_me', JSON.stringify(rememberMe))
-            localStorage.setItem('access_token', data.access_token)
-            localStorage.setItem('refresh_token', data.refresh_token)
+            localStorage.setItem('access_token', JSON.stringify(data.access_token))
+            localStorage.setItem('refresh_token', JSON.stringify(data.refresh_token))
+            document.cookie = 'loginstatus=loggedin'
             navigate('/')
 
         }).catch(error => {

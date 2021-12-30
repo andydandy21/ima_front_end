@@ -1,7 +1,13 @@
+import { useOutletContext } from "react-router-dom"
+
 import Members from "./Members";
 import Messages from "./Messages";
 
+
 export default function Main(){  
+
+    const context = useOutletContext()
+
     return (
         <div className='main'>
             <div className='details'>
