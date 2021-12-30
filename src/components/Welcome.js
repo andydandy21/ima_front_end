@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 export default function Welcome() {
     
     const context = useOutletContext()
-    console.log(context)
+
     return (
         <div className='main'>
             <div className='details'>

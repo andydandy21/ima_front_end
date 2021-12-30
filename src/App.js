@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 
 export default function App() {
 
+    window.addEventListener('storage', () => window.location.reload())
+
     const navigate = useNavigate()
     const [currentUser, setCurrentUser] = React.useState()
 

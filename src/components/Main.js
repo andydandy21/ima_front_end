@@ -7,7 +7,7 @@ import Messages from "./Messages";
 export default function Main(){  
 
     const context = useOutletContext()
-    console.log(context)
+
     return (
         <div className='main'>
             <div className='details'>
